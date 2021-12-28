@@ -1,0 +1,122 @@
+   Compiling intel-mkl-tool v0.2.0+mkl2020.1
+error[E0532]: expected tuple struct or tuple variant, found function `Ok`
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\entry.rs:75:16
+   |
+75 |         if let Ok(dir) = std::env::var("OUT_DIR") {
+   |                ^^ not a tuple struct or tuple variant
+   |
+help: consider importing one of these items instead
+   |
+1  | use std::result::Result::Ok;
+   |
+1  | use core::result::Result::Ok;
+   |
+
+error[E0532]: expected tuple struct or tuple variant, found function `Ok`
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\entry.rs:81:16
+   |
+81 |         if let Ok(lib) = pkg_config::Config::new()
+   |                ^^ not a tuple struct or tuple variant
+   |
+help: consider importing one of these items instead
+   |
+1  | use std::result::Result::Ok;
+   |
+1  | use core::result::Result::Ok;
+   |
+
+error[E0532]: expected tuple struct or tuple variant, found function `Ok`
+   --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\entry.rs:105:16
+    |
+105 |         if let Ok(path) = mkl_root {
+    |                ^^ not a tuple struct or tuple variant
+    |
+help: consider importing one of these items instead
+    |
+1   | use std::result::Result::Ok;
+    |
+1   | use core::result::Result::Ok;
+    |
+
+error[E0532]: expected tuple struct or tuple variant, found function `Ok`
+   --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\entry.rs:177:24
+    |
+177 |                 if let Ok(line) = line {
+    |                        ^^ not a tuple struct or tuple variant
+    |
+help: consider importing one of these items instead
+    |
+1   | use std::result::Result::Ok;
+    |
+1   | use core::result::Result::Ok;
+    |
+
+error[E0308]: mismatched types
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\download.rs:34:17
+   |
+34 |                 Ok(new_data.len())
+   |                 ^^^^^^^^^^^^^^^^^^ expected enum `WriteError`, found struct `anyhow::Error`
+   |
+   = note: expected enum `std::result::Result<_, WriteError>`
+              found enum `std::result::Result<_, anyhow::Error>`
+
+error[E0308]: `match` arms have incompatible types
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\config.rs:15:41
+   |
+15 | #[derive(Debug, Clone, Copy, PartialEq, Display)]
+   |                                         ^^^^^^^
+   |                                         |
+   |                                         expected struct `std::fmt::Error`, found struct `anyhow::Error`
+   |                                         `match` arms have incompatible types
+16 | pub enum LinkType {
+17 |     #[display(fmt = "static")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+18 |     Static,
+19 |     #[display(fmt = "dynamic")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+   |
+   = note: expected enum `std::result::Result<_, std::fmt::Error>`
+              found enum `std::result::Result<_, anyhow::Error>`
+   = note: this error originates in the derive macro `Display` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `match` arms have incompatible types
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\config.rs:23:41
+   |
+23 | #[derive(Debug, Clone, Copy, PartialEq, Display)]
+   |                                         ^^^^^^^
+   |                                         |
+   |                                         expected struct `std::fmt::Error`, found struct `anyhow::Error`
+   |                                         `match` arms have incompatible types
+24 | pub enum Interface {
+25 |     #[display(fmt = "lp64")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+26 |     LP64,
+27 |     #[display(fmt = "ilp64")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+   |
+   = note: expected enum `std::result::Result<_, std::fmt::Error>`
+              found enum `std::result::Result<_, anyhow::Error>`
+   = note: this error originates in the derive macro `Display` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `match` arms have incompatible types
+  --> C:\Users\admin\.cargo\registry\src\github.com-1ecc6299db9ec823\intel-mkl-tool-0.2.0+mkl2020.1\src\config.rs:31:41
+   |
+31 | #[derive(Debug, Clone, Copy, PartialEq, Display)]
+   |                                         ^^^^^^^
+   |                                         |
+   |                                         expected struct `std::fmt::Error`, found struct `anyhow::Error`
+   |                                         `match` arms have incompatible types
+32 | pub enum Threading {
+33 |     #[display(fmt = "iomp")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+34 |     OpenMP,
+35 |     #[display(fmt = "seq")]
+   |       ------- this is found to be of type `std::result::Result<(), std::fmt::Error>`
+   |
+   = note: expected enum `std::result::Result<_, std::fmt::Error>`
+              found enum `std::result::Result<_, anyhow::Error>`
+   = note: this error originates in the derive macro `Display` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+Some errors have detailed explanations: E0308, E0532.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `intel-mkl-tool` due to 8 previous errors
